@@ -5,9 +5,8 @@ public class MagSafe extends Accessories {
     String modelName;
     int stock, price;
 
-    public static ArrayList<String[]> availableAccessories = new ArrayList<String[]>();
 
-    String[] currentAccessory = new String[3];
+    String[] currentAccessory = new String[5];
 
     MagSafe(String modelName, int stock, int price) {
         this.modelName = modelName;
@@ -17,15 +16,16 @@ public class MagSafe extends Accessories {
         currentAccessory[0] = this.modelName;
         currentAccessory[1] = Integer.toString(this.stock);
         currentAccessory[2] = Integer.toString(this.price);
-
+        currentAccessory[3] = "NA"; // no color for MagSafe
+        currentAccessory[4] = "MagSafe Charger";
         availableAccessories.add(currentAccessory);
     }
 
     @Override
     void displayAvailableAccessories() {
         for (String[] accessory: availableAccessories) {
-            System.out.println("MagSafe for " + accessory[0] + " - Price: " + accessory[2]
-                    + "$ - Available Stock: " + accessory[1]);
+            System.out.println(accessory[4] + " for " + accessory[0] + " - Price: " + accessory[2]
+                    + "$ - Available Stock: " + accessory[1] + " - Color: " + accessory[3]);
 
         }
 
@@ -42,7 +42,7 @@ public class MagSafe extends Accessories {
             availableAccessories.add(currentAccessory);
 
         }
-        else System.out.println("This model is currently unavailable.");
+        else System.out.println("This accessory is currently unavailable.");
 
     }
 

@@ -4,7 +4,8 @@ abstract class Accessories
 {
     int price, stock;
     String color;
-//    public static ArrayList<String> validModels = new ArrayList<String>();
+
+    public static ArrayList<String[]> availableAccessories = new ArrayList<String[]>();
 
     abstract void displayAvailableAccessories();
 

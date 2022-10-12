@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         iPhoneModel iPhoneSE_White64 = new iPhoneModel("iPhone SE", 64, "White", 2, 300);
@@ -25,6 +27,8 @@ public class Main {
 
         iPhoneSE_White64.displayAvailablePhones();
 
+        System.out.println("----------------");
+
         iPhoneSE_White64.buyIPhone();
         System.out.println("----------------");
         iPhoneSE_White64.displayAvailablePhones();
@@ -37,7 +41,24 @@ public class Main {
 
         magSafe_12.buyMagSafeCharger("iPhone 12");
 
+        System.out.println("----------------");
+
         magSafe_12.displayAvailableAccessories();
+
+        System.out.println("----------------");
+
+        Airpods airpods = new Airpods(5, 150);
+
+        airpods.displayAvailableAccessories();
+
+        System.out.println("----------------");
+
+        airpods.buyAirpods("iPhone 13");
+
+        airpods.displayAvailableAccessories();
+
+        System.out.println("----------------");
+
 
     }
 }
