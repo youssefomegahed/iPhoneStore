@@ -59,6 +59,26 @@ public class Main {
 
         System.out.println("----------------");
 
+        Case SE_Case_Red = new Case("iPhone SE", 2, 30, "Red");
+
+        SE_Case_Red.displayAvailableAccessories();
+
+        System.out.println("----------------");
+
+        SE_Case_Red.buyCase("iPhone SE", "Red");
+
+        System.out.println("----------------");
+
+        SE_Case_Red.displayAvailableAccessories();
+        SE_Case_Red.buyCase("iPhone SE", "Red");
+        System.out.println("----------------");
+
+        SE_Case_Red.displayAvailableAccessories();
+
+        SE_Case_Red.buyCase("iPhone SE", "Red");
+        System.out.println("----------------");
+
+        SE_Case_Red.displayAvailableAccessories();
 
     }
 }
