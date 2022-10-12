@@ -28,10 +28,16 @@ public class Main {
         iPhoneSE_White64.buyIPhone();
         System.out.println("----------------");
         iPhoneSE_White64.displayAvailablePhones();
-        System.out.println(iPhoneSE_White64.availableStock);
 
 
+        MagSafe magSafe_12 = new MagSafe("iPhone 12", 3, 100);
+        MagSafe magSafe_13 = new MagSafe("iPhone 13", 2, 100);
 
+        magSafe_12.displayAvailableAccessories();
+
+        magSafe_12.buyMagSafeCharger("iPhone 12");
+
+        magSafe_12.displayAvailableAccessories();
 
     }
 }

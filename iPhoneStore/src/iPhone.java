@@ -64,7 +64,6 @@ public class iPhone {
     }
 
     public void buyPhone(int storage, String color) {
-        String[] tmp = new String[5];
 
         if (this.availableStock > 0) {
             this.availableStock -= 1;
