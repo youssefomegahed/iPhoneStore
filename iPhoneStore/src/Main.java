@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static JFrame frame = new JFrame();
@@ -117,11 +118,14 @@ public class Main {
 
                 phoneCart = getPhoneToBuy;
 
+                if(phoneCart == null) {
+                    phoneCart = "";
+                }
 
-                cartLabel.setText("<html><body>" + phoneCart + "<br><br>" + accessoryCart + "</body></html>");
-                cartLabel.setVisible(true);
-
-
+                if(phoneCart != "") {
+                    cartLabel.setText("<html><body>" + phoneCart + "<br><br>" + accessoryCart + "</body></html>");
+                    cartLabel.setVisible(true);
+                }
 
             }
 
@@ -131,7 +135,7 @@ public class Main {
         viewAccessoryButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
 
-                String[] accessoryList = new String[8];
+                String[] accessoryList = new String[12];
                 int count = 0;
 
                 for (String[] accessory : magSafe_12.getAvailableAccessories())
@@ -160,10 +164,119 @@ public class Main {
                         accessoryList[0]);
 
                 accessoryCart = getAccessoryToBuy;
+                if(accessoryCart == null) {
+                    accessoryCart = "";
+                }
+                if((accessoryCart != "")) {
+                    cartLabel.setText("<html><body>" + phoneCart + "<br><br>" + accessoryCart + "</body></html>");
+                    cartLabel.setVisible(true);
+                }
 
 
-                cartLabel.setText("<html><body>" + phoneCart + "<br><br>" + accessoryCart + "</body></html>");
-                cartLabel.setVisible(true);
+
+            }
+
+
+        });
+
+        purchaseButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+
+
+                if(phoneCart != "") {
+                    String[] phoneInfo = phoneCart.split(" - ");
+                    if(phoneInfo[0].equals("iPhone SE")) {
+                        if(phoneInfo[1].equals("White")) {
+                            iPhoneSE_White64.buyPhone(64, "White");
+                        } else if (phoneInfo[1].equals("Black")) {
+                            iPhoneSE_Black64.buyPhone(64, "Black");
+                        }
+                    } else if(phoneInfo[0].equals("iPhone 12")) {
+                        if(phoneInfo[2].equals("64GB")) {
+                            if(phoneInfo[1].equals("Black"))
+                                iPhone12_Black64.buyPhone(64, "Black");
+                            else if(phoneInfo[1].equals("White"))
+                                iPhone12_White64.buyPhone(64, "White");
+                            else if(phoneInfo[1].equals("Blue"))
+                                iPhone12_Blue64.buyPhone(64, "Blue");
+                        } else if (phoneInfo[2].equals("128GB")) {
+                            if(phoneInfo[1].equals("Black"))
+                                iPhone12_Black128.buyPhone(128, "Black");
+                            else if(phoneInfo[1].equals("White"))
+                                iPhone12_White128.buyPhone(128, "White");
+                            else if(phoneInfo[1].equals("Blue"))
+                                iPhone12_Blue128.buyPhone(128, "Blue");
+                        }
+                    } else if(phoneInfo[0].equals("iPhone 13")) {
+                        if(phoneInfo[2].equals("128GB")) {
+                            if(phoneInfo[1].equals("Black"))
+                                iPhone13_Black128.buyPhone(128, "Black");
+                            else if(phoneInfo[1].equals("White"))
+                                iPhone13_White128.buyPhone(128, "White");
+                            else if(phoneInfo[1].equals("Blue"))
+                                iPhone13_Blue128.buyPhone(128, "Blue");
+                        } else if(phoneInfo[2].equals("256GB")) {
+                            if(phoneInfo[1].equals("Black"))
+                                iPhone13_Black256.buyPhone(256, "Black");
+                            else if(phoneInfo[1].equals("White"))
+                                iPhone13_White256.buyPhone(256, "White");
+                            else if(phoneInfo[1].equals("Blue"))
+                                iPhone13_Blue256.buyPhone(256, "Blue");
+                        }
+                    }
+
+                }
+
+                if(accessoryCart != "") {
+                    String[] accessoryInfo = accessoryCart.split(" - ");
+
+                    if(accessoryInfo[0].equals("MagSafe Charger for iPhone 12")) {
+                        magSafe_12.buyMagSafeCharger("iPhone 12");
+                    } else if (accessoryInfo[0].equals("MagSafe Charger for iPhone 13")) {
+                        magSafe_13.buyMagSafeCharger("iPhone 13");
+                    } else if (accessoryInfo[0].equals("Airpods for iPhone 13")) {
+                        airpods.buyAirpods("iPhone 13");
+                    } else if (accessoryInfo[0].equals("Phone Case for iPhone SE")) {
+                        if (accessoryInfo[2].equals("Red")) {
+                            Case_Red_SE.buyCase("iPhone SE", "Red");
+                        } else if (accessoryInfo[2].equals("Black")) {
+                            Case_Black_SE.buyCase("iPhone SE", "Black");
+                        }
+                    } else if (accessoryInfo[0].equals("Phone Case for iPhone 12")) {
+                        if (accessoryInfo[2].equals("Blue")) {
+                            Case_Blue_12.buyCase("iPhone 12", "Blue");
+                        } else if (accessoryInfo[2].equals("White")) {
+                            Case_White_12.buyCase("iPhone 12", "White");
+                        }
+                    } else if (accessoryInfo[0].equals("Phone Case for iPhone 13")) {
+                        if (accessoryInfo[2].equals("Yellow")) {
+                            Case_Yellow_13.buyCase("iPhone 13", "Yellow");
+                        } else if (accessoryInfo[2].equals("Green")) {
+                            Case_Green_13.buyCase("iPhone 13", "Green");
+                        }
+                    }
+                }
+
+                if ((phoneCart == "") && (accessoryCart == ""))
+                    JOptionPane.showMessageDialog(null, "Your cart is empty, try again.");
+                else
+                    JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+
+
+
+
+                phoneCart = "";
+                accessoryCart = "";
+
+                frame.getContentPane().removeAll();
+                frame.repaint();
+
+                mainScreen();
+
+
+
+
+
 
 
 
@@ -177,66 +290,26 @@ public class Main {
 
     }
 
-    static void viewPhones() {
-
-
-
-
-    }
     public static void main(String[] args) {
 
 
         mainScreen();
 
-        iPhoneSE_White64.displayAvailablePhones();
-
-        System.out.println("----------------");
-
-        iPhoneSE_White64.buyIPhone();
-        System.out.println("----------------");
-        iPhoneSE_White64.displayAvailablePhones();
-
-
-        magSafe_12.displayAvailableAccessories();
-
-        magSafe_12.buyMagSafeCharger("iPhone 12");
-
-        System.out.println("----------------");
-
-        magSafe_12.displayAvailableAccessories();
-
-        System.out.println("----------------");
-
-
-        airpods.displayAvailableAccessories();
-
-        System.out.println("----------------");
-
-        airpods.buyAirpods("iPhone 13");
-
-        airpods.displayAvailableAccessories();
-
-        System.out.println("----------------");
-
-
-        Case_Red_SE.displayAvailableAccessories();
-
-        System.out.println("----------------");
-
-        Case_Red_SE.buyCase("iPhone SE", "Red");
-
-        System.out.println("----------------");
-
-        Case_Red_SE.displayAvailableAccessories();
-        Case_Red_SE.buyCase("iPhone SE", "Red");
-        System.out.println("----------------");
-
-        Case_Red_SE.displayAvailableAccessories();
-
-        Case_Red_SE.buyCase("iPhone SE", "Red");
-        System.out.println("----------------");
-
-        Case_Red_SE.displayAvailableAccessories();
+//        iPhoneSE_White64.displayAvailablePhones();
+//        iPhoneSE_White64.buyIPhone();
+//        System.out.println("----------------");
+//
+//        iPhoneSE_White64.displayAvailablePhones();
+//
+//        System.out.println("----------------");
+//
+//        Case_Red_SE.displayAvailableAccessories();
+//
+//        System.out.println("----------------");
+//
+//        Case_Red_SE.buyCase("iPhone SE", "Red");
+//
+//        Case_Red_SE.displayAvailableAccessories();
 
     }
 }

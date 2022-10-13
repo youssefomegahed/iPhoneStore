@@ -69,7 +69,7 @@ public class iPhone {
 
     }
 
-    public void buyPhone(int storage, String color) {
+    public boolean buyPhone(int storage, String color) {
 
         if (this.availableStock > 0) {
             this.availableStock -= 1;
@@ -78,8 +78,14 @@ public class iPhone {
             currentDevice[4] = Integer.toString(this.availableStock);
             availablePhones.add(currentDevice);
 
+            return true;
+
         }
-        else System.out.println("This model is currently unavailable.");
+        else {
+            System.out.println("This model is currently unavailable.");
+            return false;
+        }
     }
+
 
 }
