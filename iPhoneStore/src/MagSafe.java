@@ -21,6 +21,9 @@ public class MagSafe extends Accessories {
         availableAccessories.add(currentAccessory);
     }
 
+    public ArrayList<String[]> getAvailableAccessories() {
+        return availableAccessories;
+    }
     @Override
     void displayAvailableAccessories() {
         for (String[] accessory: availableAccessories) {

@@ -5,12 +5,16 @@ public class iPhone {
     String modelName, color;
     int storage, price, availableStock, id;
 
+
     ArrayList<Integer> IDs = new ArrayList<Integer>();
     public static ArrayList<String[]> availablePhones = new ArrayList<String[]>();
 
     String[] currentDevice = new String[5];
 
 
+    public ArrayList<String[]> getAvailablePhones() {
+        return availablePhones;
+    }
 
 
 
