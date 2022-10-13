@@ -93,15 +93,14 @@ public class Main {
         viewIPhoneButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
 
-                String[] phonesList = new String[15];
-                int count = 0;
+                ArrayList<String> phonesList = new ArrayList<String>();
+
                 for (String[] phone : iPhoneSE_Black64.getAvailablePhones())
                 {
                     if (!phone[4].equals("0")) {
-                        phonesList[count] = phone[0] + " - " + phone[1]
-                                + " - " + phone[2] + "GB - Price: $" + phone[3];
+                        phonesList.add(phone[0] + " - " + phone[1]
+                                + " - " + phone[2] + "GB - Price: $" + phone[3]);
                     }
-                    count += 1;
                 }
 
 
@@ -113,8 +112,8 @@ public class Main {
                         "Choose Model",
                         JOptionPane.QUESTION_MESSAGE,
                         null,
-                        phonesList,
-                        phonesList[0]);
+                        phonesList.toArray(),
+                        phonesList.get(0));
 
                 phoneCart = getPhoneToBuy;
 
@@ -135,18 +134,16 @@ public class Main {
         viewAccessoryButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
 
-                String[] accessoryList = new String[12];
-                int count = 0;
+                ArrayList<String> accessoryList = new ArrayList<String>();
+
 
                 for (String[] accessory : magSafe_12.getAvailableAccessories())
                 {
                     if (!accessory[1].equals("0") && accessory[3].equals("NA")) {
-                        accessoryList[count] = accessory[4] + " for " + accessory[0] + " - $" + accessory[2];
-                        count += 1;
+                        accessoryList.add(accessory[4] + " for " + accessory[0] + " - $" + accessory[2]);
                     } else if (!accessory[1].equals("0")) {
-                        accessoryList[count] = accessory[4] + " for " + accessory[0] + " - $" + accessory[2]
-                                + " - " + accessory[3];
-                        count += 1;
+                        accessoryList.add(accessory[4] + " for " + accessory[0] + " - $" + accessory[2]
+                                + " - " + accessory[3]);
                     }
 
                 }
@@ -160,8 +157,8 @@ public class Main {
                         "Choose Accessory",
                         JOptionPane.QUESTION_MESSAGE,
                         null,
-                        accessoryList,
-                        accessoryList[0]);
+                        accessoryList.toArray(),
+                        accessoryList.get(0));
 
                 accessoryCart = getAccessoryToBuy;
                 if(accessoryCart == null) {
