@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +21,20 @@ public class Main {
         iPhoneModel iPhone13_Blue256 = new iPhoneModel("iPhone 13", 256, "Blue",4, 500);
 
 
+        MagSafe magSafe_12 = new MagSafe("iPhone 12", 3, 100);
+        MagSafe magSafe_13 = new MagSafe("iPhone 13", 2, 100);
+
+        Airpods airpods = new Airpods(5, 150);
+
+        Case Case_Red_SE = new Case("iPhone SE", 2, 30, "Red");
+        Case Case_Black_SE = new Case("iPhone SE", 1, 30, "Black");
+
+        Case Case_Blue_12 = new Case("iPhone 12", 3, 40, "Blue");
+        Case Case_White_12 = new Case("iPhone 12", 4, 40, "White");
+
+
+        Case Case_Yellow_13 = new Case("iPhone 13", 1, 50, "Yellow");
+        Case Case_Green_13 = new Case("iPhone 13", 3, 50, "Green");
 
 
 
@@ -34,9 +47,6 @@ public class Main {
         iPhoneSE_White64.displayAvailablePhones();
 
 
-        MagSafe magSafe_12 = new MagSafe("iPhone 12", 3, 100);
-        MagSafe magSafe_13 = new MagSafe("iPhone 13", 2, 100);
-
         magSafe_12.displayAvailableAccessories();
 
         magSafe_12.buyMagSafeCharger("iPhone 12");
@@ -47,7 +57,6 @@ public class Main {
 
         System.out.println("----------------");
 
-        Airpods airpods = new Airpods(5, 150);
 
         airpods.displayAvailableAccessories();
 
@@ -59,26 +68,25 @@ public class Main {
 
         System.out.println("----------------");
 
-        Case SE_Case_Red = new Case("iPhone SE", 2, 30, "Red");
 
-        SE_Case_Red.displayAvailableAccessories();
-
-        System.out.println("----------------");
-
-        SE_Case_Red.buyCase("iPhone SE", "Red");
+        Case_Red_SE.displayAvailableAccessories();
 
         System.out.println("----------------");
 
-        SE_Case_Red.displayAvailableAccessories();
-        SE_Case_Red.buyCase("iPhone SE", "Red");
+        Case_Red_SE.buyCase("iPhone SE", "Red");
+
         System.out.println("----------------");
 
-        SE_Case_Red.displayAvailableAccessories();
-
-        SE_Case_Red.buyCase("iPhone SE", "Red");
+        Case_Red_SE.displayAvailableAccessories();
+        Case_Red_SE.buyCase("iPhone SE", "Red");
         System.out.println("----------------");
 
-        SE_Case_Red.displayAvailableAccessories();
+        Case_Red_SE.displayAvailableAccessories();
+
+        Case_Red_SE.buyCase("iPhone SE", "Red");
+        System.out.println("----------------");
+
+        Case_Red_SE.displayAvailableAccessories();
 
     }
 }

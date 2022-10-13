@@ -56,8 +56,10 @@ public class iPhone {
 
     public void displayAvailablePhones() {
         for (String[] phone: availablePhones) {
-            System.out.println("Model Name: " + phone[0] + " - Color: " + phone[1]
-                    + " - Storage: " + phone[2] + "GB - Price: " + phone[3] + "$ - Available Stock: " + phone[4]);
+            if (!phone[4].equals("0")) {
+                System.out.println("Model Name: " + phone[0] + " - Color: " + phone[1]
+                        + " - Storage: " + phone[2] + "GB - Price: " + phone[3] + "$ - Available Stock: " + phone[4]);
+            }
 
         }
 

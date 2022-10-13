@@ -23,8 +23,10 @@ public class Case extends Accessories {
     @Override
     void displayAvailableAccessories() {
         for (String[] accessory: availableAccessories) {
-            System.out.println(accessory[4] +" for " + accessory[0] + " - Price: " + accessory[2]
-                    + "$ - Available Stock: " + accessory[1] + " - Color: " + accessory[3]);
+            if(!accessory[1].equals("0")) {
+                System.out.println(accessory[4] + " for " + accessory[0] + " - Price: " + accessory[2]
+                        + "$ - Available Stock: " + accessory[1] + " - Color: " + accessory[3]);
+            }
 
         }
     }
