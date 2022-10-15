@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Display {
     public static JFrame frame = new JFrame();
@@ -105,17 +106,21 @@ public class Display {
 
 
 
-                String getPhoneToBuy = (String) JOptionPane.showInputDialog(
-                        null,
-                        "Which phone would you like to buy?",
-                        "Choose Model",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null,
-                        phonesList.toArray(),
-                        phonesList.get(0));
+                try {
+                    String getPhoneToBuy = (String) JOptionPane.showInputDialog(
+                            null,
+                            "Which phone would you like to buy?",
+                            "Choose Model",
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            phonesList.toArray(),
+                            phonesList.get(0));
 
-                phoneCart = getPhoneToBuy;
-
+                    phoneCart = getPhoneToBuy;
+                } catch (InputMismatchException exception) {
+                    System.out.println("Input error. Try again.");
+                    // this try catch is for practice purpose only. It's not actually needed.
+                }
                 if(phoneCart == null) {
                     phoneCart = "";
                 }
@@ -150,16 +155,23 @@ public class Display {
 
 
 
-                String getAccessoryToBuy = (String) JOptionPane.showInputDialog(
-                        null,
-                        "Which accessory would you like to buy?",
-                        "Choose Accessory",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null,
-                        accessoryList.toArray(),
-                        accessoryList.get(0));
+                try {
+                    String getAccessoryToBuy = (String) JOptionPane.showInputDialog(
+                            null,
+                            "Which accessory would you like to buy?",
+                            "Choose Accessory",
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            accessoryList.toArray(),
+                            accessoryList.get(0));
 
-                accessoryCart = getAccessoryToBuy;
+                    accessoryCart = getAccessoryToBuy;
+
+                } catch (InputMismatchException exception) {
+                        System.out.println("Input error. Try again.");
+                        // this try catch is for practice purpose only. It's not actually needed.
+                    }
+
                 if(accessoryCart == null) {
                     accessoryCart = "";
                 }
